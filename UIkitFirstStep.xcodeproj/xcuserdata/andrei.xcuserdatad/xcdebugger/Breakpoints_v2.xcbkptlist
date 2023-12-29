@@ -7,84 +7,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "149D1DA6-A878-4D25-892B-F3598D2CAB47"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "UIkitFirstStep/ViewController/StartController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "22"
-            endingLineNumber = "22"
-            landmarkName = "saveNewTarget()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "149D1DA6-A878-4D25-892B-F3598D2CAB47 - a58a9039f7d2cd41"
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "UIkitFirstStep.StartController.saveNewTarget() -&gt; ()"
-                  moduleName = "UIkitFirstStep"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/andrei/Fork/WladMadiHomeWork2/UIkitFirstStep/UIkitFirstStep/ViewController/StartController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "22"
-                  endingLineNumber = "22"
-                  offsetFromSymbolStart = "40">
-               </Location>
-               <Location
-                  uuid = "149D1DA6-A878-4D25-892B-F3598D2CAB47 - f4d386ceeb0ba1a5"
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (__C.UIAction) -&gt; () in UIkitFirstStep.StartController.saveNewTarget() -&gt; ()"
-                  moduleName = "UIkitFirstStep"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/andrei/Fork/WladMadiHomeWork2/UIkitFirstStep/UIkitFirstStep/ViewController/StartController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "23"
-                  endingLineNumber = "23"
-                  offsetFromSymbolStart = "100">
-               </Location>
-               <Location
-                  uuid = "149D1DA6-A878-4D25-892B-F3598D2CAB47 - f4d386ceeb0ba1a5"
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (__C.UIAction) -&gt; () in UIkitFirstStep.StartController.saveNewTarget() -&gt; ()"
-                  moduleName = "UIkitFirstStep"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/andrei/Fork/WladMadiHomeWork2/UIkitFirstStep/UIkitFirstStep/ViewController/StartController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "23"
-                  endingLineNumber = "23"
-                  offsetFromSymbolStart = "92">
-               </Location>
-               <Location
-                  uuid = "149D1DA6-A878-4D25-892B-F3598D2CAB47 - a58a9039f7d2cccd"
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "UIkitFirstStep.StartController.saveNewTarget() -&gt; ()"
-                  moduleName = "UIkitFirstStep"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/andrei/Fork/WladMadiHomeWork2/UIkitFirstStep/UIkitFirstStep/ViewController/StartController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "34"
-                  endingLineNumber = "34"
-                  offsetFromSymbolStart = "40">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "E4FE951A-5C89-4DC5-98DE-79A9892D0569"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -120,9 +42,41 @@
             filePath = "UIkitFirstStep/ViewController/StartController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "23"
-            endingLineNumber = "23"
+            startingLineNumber = "63"
+            endingLineNumber = "63"
             landmarkName = "saveNewTarget()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "FBFDB539-8CE6-47E2-9534-9E3EB86D7F3A"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "UIkitFirstStep/View/MainView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "31"
+            endingLineNumber = "31"
+            landmarkName = "setViews()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8DB74E6C-9B1C-4902-83DE-62CB1F0BFC4B"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "UIkitFirstStep/ViewController/StartController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "49"
+            endingLineNumber = "49"
+            landmarkName = "switchValueDidChange()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

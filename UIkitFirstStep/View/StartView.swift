@@ -47,6 +47,9 @@ class StartView: UIView {
         titleImportant.text = "Bажная?"
         titleImmediate.text = "Cрочная?"
         
+        important.isOn = false
+        immediate.isOn = false
+        
         //MARK: Настройка UIButton.
         saveButton.setTitle("Сохранить", for: .normal)
         saveButton.backgroundColor = UIColor(named: "ButtonColor")
