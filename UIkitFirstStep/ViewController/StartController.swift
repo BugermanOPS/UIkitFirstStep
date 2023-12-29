@@ -70,6 +70,8 @@ class StartController: UIViewController {
         //        print(check)
         //TODO: END.
         
+        
+        //TODO: доделать ввод данных.
         let saveAction = UIAction { _ in
            
             self.switchValueDidChange() // Параметры "важно" и "срочно".
