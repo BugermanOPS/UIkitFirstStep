@@ -68,6 +68,7 @@ class StartController: UIViewController {
         //        let check = (self.mainView.immediate, self.mainView.important)
         //
         //        print(check)
+ //       lklkmkmkmp;mpm
         //TODO: END.
         
         
