@@ -13,3 +13,6 @@ struct Target: Identifiable {
     let description: String
     let category: TargetCategory
 }
+
+
+//MARK: Cоздание ячейки данных где указанa: название цели, описание цели, категория которой относится цель.

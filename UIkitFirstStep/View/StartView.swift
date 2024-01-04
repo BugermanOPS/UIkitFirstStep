@@ -12,7 +12,7 @@ class StartView: UIView {
     
     let tfName = UITextField(placeholder: "Название")
     let tfDescription = UITextField(placeholder: "Oписание")
-    let tfCategories = UITextField(placeholder: "Kатегория")
+    var tfCategories = UITextField(placeholder: "Kатегория")
     
     let important = UISwitch(color: UIColor.black.cgColor)  // важная
     let immediate = UISwitch(color: UIColor.black.cgColor) // срочная

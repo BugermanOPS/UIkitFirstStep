@@ -33,7 +33,7 @@ class TableViewCell: UITableViewCell {
         imageCircle.heightAnchor.constraint(equalToConstant: 26).isActive = true
         imageCircle.widthAnchor.constraint(equalToConstant: 26).isActive = true
         
-        textLabelCell.text = "new idea"
+      //  textLabelCell.text = "new idea"
         textLabelCell.font = .systemFont(ofSize: 20)
         
         innerStackView.backgroundColor = .white

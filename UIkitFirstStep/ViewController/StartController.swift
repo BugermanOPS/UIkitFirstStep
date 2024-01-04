@@ -11,7 +11,6 @@ class StartController: UIViewController {
     let mainView = StartView()
     var firstSwitch: Bool = false
     var secondSwitch: Bool = false
-
     
     weak var addNewTargettDelegate: AddNewTargetDelegate?
     
@@ -19,73 +18,71 @@ class StartController: UIViewController {
         super.viewDidLoad()
         view = mainView
         
+        self.mainView.tfName.text = ""
+        self.mainView.tfDescription.text = ""
         
         self.mainView.important.addTarget(self, action: #selector(switchFirstValueDidChange(_:)), for: .valueChanged)
         self.mainView.immediate.addTarget(self, action: #selector(switchSecondValueDidChange(_:)), for: .valueChanged)
-
+        
         saveNewTarget()
     }
     
     @objc func switchFirstValueDidChange(_ sender: UISwitch) {
         firstSwitch = sender.isOn // Обновляем значение переменной при изменении состояния UISwitch
-            if firstSwitch {
-                print("\(firstSwitch) - Switch включен first")
-            } else {
-                print("\(firstSwitch) - Switch выключен first")
-            }
+        if firstSwitch {
+            print("\(firstSwitch) - Switch включен first")
+        } else {
+            print("\(firstSwitch) - Switch выключен first")
         }
+    }
     
     @objc func switchSecondValueDidChange(_ sender: UISwitch) {
         secondSwitch = sender.isOn // Обновляем значение переменной при изменении состояния UISwitch
-            if secondSwitch {
-                print("\(secondSwitch) - Switch включен second")
-            } else {
-                print("\(secondSwitch) - Switch выключен second")
-            }
+        if secondSwitch {
+            print("\(secondSwitch) - Switch включен second")
+        } else {
+            print("\(secondSwitch) - Switch выключен second")
         }
+    }
     
     //MARK: Проверка параметров "self.mainView.important" и "self.mainView.immediate" на свойства включено или выключено.
-    func switchValueDidChange() {
+    func switchValueDidChange() -> TargetCategory {
         switch (firstSwitch, secondSwitch) {
         case (false, false):
-            print(TargetCategory.NotImportantNotQuickly.rawValue)
+            return TargetCategory.NotImportantNotQuickly
         case (true, true):
-            print(TargetCategory.ImportantQuickly.rawValue)
+            return TargetCategory.ImportantQuickly
         case (true, false):
-            print(TargetCategory.ImportantNotQuickly.rawValue)
+            return TargetCategory.ImportantNotQuickly
         default:
-            print(TargetCategory.NotImportantQuickly.rawValue)
+            return TargetCategory.NotImportantQuickly
         }
     }
     
     func saveNewTarget() {
-        //TODO: Проверка ввода данных и обработка их при нажатии кнопки сохранить.
-        //        guard let targetTitle = self.mainView.tfName.text,
-        //              let description = self.mainView.tfDescription.text
-        //              let category = self.mainView.tfCategories.text
-        //        else{ return }
-        //
-        //        let check = (self.mainView.immediate, self.mainView.important)
-        //
-        //        print(check)
- //       lklkmkmkmp;mpm
-        //TODO: END.
-        
-        
-        //TODO: доделать ввод данных.
         let saveAction = UIAction { _ in
-           
-            self.switchValueDidChange() // Параметры "важно" и "срочно".
-
-            let newTarget = Target(targetTitle: "1",
-                                   description: "2",
-                                   category: TargetCategory.ImportantNotQuickly)
+            
+            //MARK: Проверка ввода данных и обработка их при нажатии кнопки сохранить.
+            guard let targetTitle = self.mainView.tfName.text,
+                  let description = self.mainView.tfDescription.text
+            else { return }
+            //MARK: END.
+            
+            // Параметры "важно" и "срочно", Begin cod.
+            let categoryRawValue = self.switchValueDidChange()
+            // Параметры "важно" и "срочно". End cod.
+            
+            let newTarget = Target(targetTitle: targetTitle,
+                                   description: description,
+                                   category: categoryRawValue)
             
             guard let added = self.addNewTargettDelegate?.getTarget(newTarget)
             else { return }
             
+            
+            //TODO: разобрать код ниже.
             if added {
-                self.dismiss(animated: true) // ?????
+                self.dismiss(animated: true)// ?????
             } else {
                 print("Такой продукт уже есть в списке")
             }

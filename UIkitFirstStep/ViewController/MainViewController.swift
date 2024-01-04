@@ -16,13 +16,26 @@ class MainViewController: UIViewController {
     let mainView = MainView()
     var timeView = TimeView.getTimeView()
     
-    var sections = [TargetSection]() 
-    {
-        didSet {
-            mainView.tableView.reloadData()
-        }
-    }
-    
+    var sectionData: [TargetSection] = [
+        .init(category: .ImportantQuickly, target: [
+            .init(targetTitle: "name1", description: "1", category: .ImportantQuickly),
+            .init(targetTitle: "mame2", description: "2", category: .ImportantQuickly),
+            .init(targetTitle: "mame3", description: "3", category: .ImportantQuickly)
+        ]),
+        .init(category: .ImportantNotQuickly, target: [
+            .init(targetTitle: "name1", description: "1", category: .ImportantNotQuickly),
+            .init(targetTitle: "mame2", description: "2", category: .ImportantNotQuickly),
+            .init(targetTitle: "mame3", description: "3", category: .ImportantNotQuickly)
+        ]),
+        .init(category: .NotImportantQuickly, target: [
+            .init(targetTitle: "name1", description: "1", category: .NotImportantQuickly),
+            .init(targetTitle: "mame2", description: "2", category: .NotImportantQuickly)
+        ]),
+        .init(category: .NotImportantNotQuickly, target: [
+            .init(targetTitle: "name1", description: "1", category: .NotImportantNotQuickly),
+            .init(targetTitle: "mame2", description: "2", category: .NotImportantNotQuickly)
+        ])
+    ]
     override func viewDidLoad() {
         super.viewDidLoad()
         view = mainView
@@ -30,11 +43,11 @@ class MainViewController: UIViewController {
         //MARK: delegate необходим для от отслеживания изменений.
         mainView.collectionView.delegate = self
         mainView.tableView.delegate = self
-      
+        
         //MARK: dataSource необходимо для подключение.
         mainView.collectionView.dataSource = self
         mainView.tableView.dataSource = self
-
+        
         //MARK: allowsSelection нужно для того чтобы убрать выделение в ячейке таблицы.
         mainView.tableView.allowsSelection = false
         
@@ -79,48 +92,41 @@ extension MainViewController: UICollectionViewDelegateFlowLayout {
     }
 }
 
+
 extension MainViewController: UITableViewDataSource {
+    
     //Возвращает количество секций
     func numberOfSections(in tableView: UITableView) -> Int {
-        self.sections.count
+        print(sectionData.count)
+        return self.sectionData.count
     }
     
     //Возвращает количество ячеек в секции
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        self.sections[section].target.count
+        return self.sectionData[section].target.count
     }
     
-    //Создаёт, заполняет и возвращает ячейку по каждому indexPath
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: TableViewCell.reuseID) as! TableViewCell
         
+        let targetCells = self.sectionData[indexPath.section].target[indexPath.row]
         
-        let targetBase = self.sections[indexPath.section].target[indexPath.row]
-        cell.textLabelCell.text = targetBase.targetTitle
-        
+        cell.textLabelCell.text = targetCells.targetTitle
         return cell
     }
 }
 
-
 extension MainViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(indexPath)
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return sectionData[section].category.rawValue
     }
 }
 
-//MARK: Bвод данных в таблицу в MainViewController, в ячейку секции.
 extension MainViewController: AddNewTargetDelegate {
     func getTarget(_ target: Target) -> Bool {
-  //      var x = 0
-        if self.sections.isEmpty {
-
-            let rowInfo = TargetSection(category: target.category, target: [target])
-            self.sections.append(rowInfo)
-        }
-        else {
-            self.sections[sections.startIndex].target.append(target)
-        }
+            sectionData[1].target.append(target)
+            mainView.tableView.reloadData()
         return true
     }
 }
