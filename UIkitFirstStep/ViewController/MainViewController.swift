@@ -36,6 +36,7 @@ class MainViewController: UIViewController {
             .init(targetTitle: "mame2", description: "2", category: .NotImportantNotQuickly)
         ])
     ]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view = mainView
@@ -92,12 +93,12 @@ extension MainViewController: UICollectionViewDelegateFlowLayout {
     }
 }
 
-
 extension MainViewController: UITableViewDataSource {
+    //    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+    //    }
     
     //Возвращает количество секций
     func numberOfSections(in tableView: UITableView) -> Int {
-        print(sectionData.count)
         return self.sectionData.count
     }
     
@@ -112,6 +113,16 @@ extension MainViewController: UITableViewDataSource {
         
         let targetCells = self.sectionData[indexPath.section].target[indexPath.row]
         
+        //MARK: прописываем идентификатор для каждой секции таблица, то есть придаем кругу - цвет заданный секции.
+        switch indexPath.section {
+        case 0: cell.imageCircle.backgroundColor = timeView[0].bgView
+        case 1: cell.imageCircle.backgroundColor = timeView[1].bgView
+        case 2: cell.imageCircle.backgroundColor = timeView[2].bgView
+        case 3: cell.imageCircle.backgroundColor = timeView[3].bgView
+        default:
+            break
+        }
+        
         cell.textLabelCell.text = targetCells.targetTitle
         return cell
     }
@@ -125,11 +136,23 @@ extension MainViewController: UITableViewDelegate {
 
 extension MainViewController: AddNewTargetDelegate {
     func getTarget(_ target: Target) -> Bool {
+        let sectionNamber = target.category
+        //        print(sectionNamber)
+        switch sectionNamber {
+        case .ImportantQuickly:
+            sectionData[0].target.append(target)
+        case .ImportantNotQuickly:
             sectionData[1].target.append(target)
-            mainView.tableView.reloadData()
+        case .NotImportantQuickly:
+            sectionData[2].target.append(target)
+        case .NotImportantNotQuickly:
+            sectionData[3].target.append(target)
+        }
+        mainView.tableView.reloadData()
         return true
     }
 }
+
 
 #Preview {
     MainViewController()

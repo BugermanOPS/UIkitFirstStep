@@ -25,8 +25,8 @@ class StartView: UIView {
     //----------------------------------------------->
     init() {
         super.init(frame: .zero)
-        setViews()
         setConstraint()
+        setViews()
     }
     
     private func setViews(){
@@ -42,6 +42,7 @@ class StartView: UIView {
         
         //MARK: Настройка UITextField. "Название", "Oписание", "Kатегория".
         // Настройка при инициализаций, по умолчанию.
+        tfCategories.isUserInteractionEnabled = false
         
         //MARK: Настройка UISwitch. "важная", "срочная".
         titleImportant.text = "Bажная?"
@@ -72,6 +73,7 @@ class StartView: UIView {
     
     private func setConstraint(){
         //MARK: Добавление Constraint - UITextField. "Название", "Oписание", "Kатегория".
+        
         let stackTfield = UIStackView(views: [tfName, tfDescription, tfCategories],
                                       axis: .vertical,
                                       spacing: 13,
@@ -103,10 +105,10 @@ class StartView: UIView {
         addSubview(oneMainStack)
         oneMainStack.translatesAutoresizingMaskIntoConstraints = false
         
-        NSLayoutConstraint.activate ([oneMainStack.topAnchor.constraint(equalTo:
-                                                                            topAnchor, constant: 70),
-                                      oneMainStack.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 50),
-                                      oneMainStack.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -50)
+        NSLayoutConstraint.activate ([
+            oneMainStack.topAnchor.constraint(equalTo: topAnchor, constant: 70),
+            oneMainStack.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 50),
+            oneMainStack.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -50)
         ])
     }
     

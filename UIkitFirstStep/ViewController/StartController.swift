@@ -11,19 +11,18 @@ class StartController: UIViewController {
     let mainView = StartView()
     var firstSwitch: Bool = false
     var secondSwitch: Bool = false
-    
+
     weak var addNewTargettDelegate: AddNewTargetDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view = mainView
         
-        self.mainView.tfName.text = ""
-        self.mainView.tfDescription.text = ""
-        
         self.mainView.important.addTarget(self, action: #selector(switchFirstValueDidChange(_:)), for: .valueChanged)
         self.mainView.immediate.addTarget(self, action: #selector(switchSecondValueDidChange(_:)), for: .valueChanged)
         
+        mainView.tfCategories.text = self.switchValueDidChange().rawValue
+      
         saveNewTarget()
     }
     
@@ -34,6 +33,7 @@ class StartController: UIViewController {
         } else {
             print("\(firstSwitch) - Switch выключен first")
         }
+        mainView.tfCategories.text = self.switchValueDidChange().rawValue
     }
     
     @objc func switchSecondValueDidChange(_ sender: UISwitch) {
@@ -43,6 +43,7 @@ class StartController: UIViewController {
         } else {
             print("\(secondSwitch) - Switch выключен second")
         }
+        mainView.tfCategories.text = self.switchValueDidChange().rawValue
     }
     
     //MARK: Проверка параметров "self.mainView.important" и "self.mainView.immediate" на свойства включено или выключено.
@@ -78,7 +79,6 @@ class StartController: UIViewController {
             
             guard let added = self.addNewTargettDelegate?.getTarget(newTarget)
             else { return }
-            
             
             //TODO: разобрать код ниже.
             if added {

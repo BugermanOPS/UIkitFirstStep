@@ -18,15 +18,13 @@ class TableViewCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle,
                   reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-      
         setConstraints()
         setViews()
     }
     
     private func setViews() {
         backgroundColor = UIColor(named: "bgColor")
-
-        imageCircle.backgroundColor = .systemBlue
+//        imageCircle.backgroundColor = .systemBlue
         imageCircle.layer.cornerRadius = 13
         imageCircle.clipsToBounds = true
         imageCircle.contentMode = .scaleAspectFill

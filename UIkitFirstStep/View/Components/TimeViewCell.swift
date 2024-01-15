@@ -17,8 +17,8 @@ class TimeViewCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        setViews()
         setConstraints()
+        setViews()
     }
     
     //MARK: функции setViews(), необходимо для настройки параметров переменных.

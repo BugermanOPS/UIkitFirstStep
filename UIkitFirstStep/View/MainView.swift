@@ -20,14 +20,12 @@ class MainView: UIView {
     init() {
         super.init(frame: .zero)
         backgroundColor = UIColor(named: "bgColor")
-        
-        setViews()
-        
         setConstraint()
+        setViews()
     }
     
     //MARK: настройка параметров вида элементов.
-    private func setViews(){
+    private func setViews() {
         //MARK: настройка верхнего меню с названием.
         labelConfig()
         
@@ -37,8 +35,6 @@ class MainView: UIView {
         tableView.backgroundColor = UIColor(named: "bgColor")
         tableView.rowHeight = 45
         tableView.sectionHeaderHeight = 0
-        
-        
     }
     
     private func labelConfig() {
@@ -50,7 +46,7 @@ class MainView: UIView {
     
     //MARK: настройка Constraint элементов.
     private func setConstraint(){
-        labelConfig()
+     //   labelConfig()
         setupMenu()
         setupCollectionView()
         setupTableView()
